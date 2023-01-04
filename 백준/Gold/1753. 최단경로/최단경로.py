@@ -21,9 +21,6 @@ def find(x, matrix, visited) :
     
     while queue :
         w, p = heapq.heappop(queue)
-               
-        if visited[p] < w :
-            continue
             
         for new_p, new_w in matrix[p] : 
             weight = w + new_w
