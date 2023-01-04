@@ -3,7 +3,7 @@ from collections import deque
 
 n, m = map(int, sys.stdin.readline().split())
 
-matrix = [list(map(int, input())) for i in range(n)]
+matrix = [list(map(int, sys.stdin.readline().rstrip())) for i in range(n)]
 visited = [[[0] * 2 for i in range(m)] for i in range(n)]
 
 def bfs(x, y, z, matrix, visited, n, m) :
@@ -31,9 +31,6 @@ def bfs(x, y, z, matrix, visited, n, m) :
                 elif visited[newx][newy][c] == 0 and matrix[newx][newy] == 0 :
                     visited[newx][newy][c] = visited[a][b][c] + 1
                     queue.append((newx, newy, c))
-                    
-                else :
-                    continue
                                         
     return -1 
 
