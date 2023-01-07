@@ -2,4 +2,3 @@
 This is a auto push repository for Baekjoon Online Judge created with [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub).
 
 Coding Study Result
-백준 풀이
