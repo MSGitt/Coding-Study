@@ -8,13 +8,13 @@ def bfs(x, stop, n, matrix) :
     queue.append(x)
     visited[x] = 1
     
-    count = 0
+    count = 1
     
     while queue :
         a = queue.popleft()
         
         for i in matrix[a] : 
-            if a == stop :
+            if i == stop :
                 continue 
                 
             if visited[i] == 0 :
