@@ -1,11 +1,7 @@
 def solution(strings, n):
     
-    answer = []
     
-    for i in strings :
-        answer.append(i)
-        
-    k = sorted(answer)
+    strings.sort()
+    strings.sort(key = lambda x : x[n])
     
-    
-    return sorted(k, key = lambda x : x[n])
+    return strings
