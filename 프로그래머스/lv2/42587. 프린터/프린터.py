@@ -1,8 +1,5 @@
 def solution(priorities, location):
     
-    stack = []
-    
-    
     queue = [(i, p) for i, p in enumerate(priorities)]
     
     m = max(priorities) 
