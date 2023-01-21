@@ -2,25 +2,26 @@ import sys
 from collections import deque
 
 n, k = map(int, sys.stdin.readline().split())
-visited = [0] * 1000001
 
 def bfs(x, k) :
     
     queue = deque()
+    visited = [0] * 100001
+    
     queue.append(x)
- 
+    count = 0
     
     while queue :
-        c = queue.popleft()
-            
-        if c == k :
-            return visited[c]
-            
-        else :
-            for i in (c-1, c + 1, c * 2) :
-                if 0 <= i <= 100000 and visited[i] == 0 :
-                    queue.append(i)
-                    visited[i] = visited[c] + 1
-                                   
-print(bfs(n, k))           
-    
+        a = queue.popleft()
+        
+        if a == k :
+            return visited[k]
+        
+        for i in (a-1, a+1, 2*a) :
+            if 0 <= i < 100001 and visited[i] == 0 :
+                queue.append(i)
+                visited[i] = visited[a] + 1
+                
+result = bfs(n, k)   
+
+print(result)
