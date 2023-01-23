@@ -1,26 +1,24 @@
 import sys
 
-n, m = map(int, sys.stdin.readline().split())
+n, k = map(int, sys.stdin.readline().split())
 
-bag = [[0] * (m + 1) for i in range(n)]
-item = []
+number = []
+dp = [[0] * (k + 1) for i in range(n + 1)]
 
 for i in range(n) :
     
-    item.append(list(map(int, sys.stdin.readline().split())))
-       
-for i in range(n) :
-    for j in range(m+1) :
-        if i == 0 :
-            if item[i][0] <= j :
-                bag[i][j] = item[i][1]
-                
+    a, b = map(int, sys.stdin.readline().split())
+    number.append((a, b))
+    
+for i in range(1, n + 1) :
+    for j in range(1, k + 1) :
+    
+        weight, value = number[i - 1]
+
+        if j < weight : 
+            dp[i][j] = dp[i-1][j]
+
         else :
-            if j - item[i][0] < 0 :
-                bag[i][j] = bag[i-1][j]
-                
-            else  :
-                bag[i][j] = max(bag[i-1][j-item[i][0]] + item[i][1], bag[i-1][j])
-                
-print(bag[n-1][m])
-    
+            dp[i][j] = max(dp[i-1][j-weight] + value, dp[i-1][j])
+            
+print(dp[-1][-1])
